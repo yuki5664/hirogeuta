@@ -1,0 +1,31 @@
+version: "3.6"
+
+services:
+  app:
+    build:
+      context: docker/app/
+      args:
+        APP_ROOT: /hirogeuta
+    volumes:
+      - .:/hirogeuta:cached
+      - bundle:/usr/local/bundle
+      - yarn-data:/usr/local/share/.cache/yarn
+    ports:
+      - 3000:3000
+    tty: true
+    depends_on:
+      - db
+
+  db:
+    build: docker/db/
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+    ports:
+      - 3306:3306
+
+volumes:
+  bundle:
+  mysql-data:
+  yarn-data:
