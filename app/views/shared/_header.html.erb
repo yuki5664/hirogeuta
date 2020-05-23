@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark nav-fill sticky-top header-wrapper">
+  <%# ロゴ部分 %>
+  <div class="nav-item">
+    <%= link_to image_tag("3.png", alt: "Hirogeuta logo",  width: "120px"),
+                      root_path %>
+
+  </div>
+  <%# メニュー格納時のボタン %>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%# メニュー %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="nav-item form-inline mb-2 mb-lg-0" action="/" accept-charset="UTF-8" method="get">
+      <input type="text" name="q" id="q" value="" class="form-control" placeholder="検索" >
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li class=" btn btn-success border-white"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
+      <li class=" btn btn-dark border-white ml-3"><%= link_to "ログイン", '#', style: "color:white; text-decoration: none;" %></li>
+    </ul>
+    
+  </div>
+</nav>
