@@ -16,8 +16,23 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li class=" btn btn-success border-white"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
-      <li class=" btn btn-dark border-white ml-3"><%= link_to "ログイン", '#', style: "color:white; text-decoration: none;" %></li>
+      <% if logged_in? %>
+      <div class="dropdown show">
+        <a href="#" class="dropdown-toggle btn btn-dark border-white ml-3" data-toggle="dropdown">
+          アカウント <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu">
+          <li class="dropdown-item"><%= link_to "プロフィール", current_user %></li>
+          <li class="dropdown-item"><%= link_to "編集", '#' %></li>
+          <hr>
+          <li class="dropdown-item">
+            <%= link_to "Log out", logout_path, method: :delete %>
+          </li>
+        </div>
+      </div>
+      <% else %>
+      <li class=" btn btn-dark border-white ml-3"><%= link_to "ログイン", login_path, style: "color:white; text-decoration: none;" %></li>
+      <% end %>
     </ul>
-    
   </div>
 </nav>
