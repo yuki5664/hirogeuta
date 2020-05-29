@@ -11,8 +11,12 @@
       </div>
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.password_field :password, class: 'form-control' %>       
       </div>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>次回から入力を省略する</span>
+      <% end %>
         <p class="action">
           <%= f.submit "Log in", class: "btn btn-block btn-primary" %>
         </p>
