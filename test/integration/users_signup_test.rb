@@ -9,7 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                         email: "user@invalid",
                         password: "foo",
                         password_confirmation: "bar" ,
-                        avatar: "" }}
+                        }}
     end
   end 
   

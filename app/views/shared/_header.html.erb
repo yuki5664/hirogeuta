@@ -23,7 +23,7 @@
         </a>
         <div class="dropdown-menu">
           <li class="dropdown-item"><%= link_to "プロフィール", current_user %></li>
-          <li class="dropdown-item"><%= link_to "編集", '#' %></li>
+          <li class="dropdown-item"><%= link_to "編集", edit_user_path(current_user) %></li>
           <hr>
           <li class="dropdown-item">
             <%= link_to "Log out", logout_path, method: :delete %>

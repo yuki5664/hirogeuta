@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <div class="col-lg-12 mb-3">
-        <h1 class="text-center logo">Sign Up</h1>
+        <h1 class="text-center logo">Log in</h1>
       </div>
       <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
       <div class="form-group">
@@ -22,7 +22,7 @@
         </p>
       <% end %>
 
-      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      <p>登録していない方 <%= link_to "Sign up now!", signup_path %></p>
     </div>
   </div>
 </div>
