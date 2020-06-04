@@ -1,6 +1,6 @@
 
 ようこそ <%= @user.name %>さん,
 
-ヒロゲウタへようこそ! このリンクをクリックすると登録が完了します！:
+ヒロゲウタへようこそ! このリンクをクリックして登録を完了させてください！:
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
