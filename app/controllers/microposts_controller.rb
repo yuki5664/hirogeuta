@@ -30,7 +30,13 @@ class MicropostsController < ApplicationController
   end
   
   def destroy
+    @post = Micropost.find(params[:id])
+    @post.destroy
+    flash[:success] = "削除されました！"
+    redirect_to root_url
   end
+
+
 
   private
 

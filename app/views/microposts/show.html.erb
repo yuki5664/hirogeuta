@@ -20,9 +20,36 @@
             <div class="card-body border">
               <%= @post.content %>
             </div>
+            <% if current_user?(@post.user) %>
+            <button type="button" class="btn btn-warning m-2">
+              <%= link_to "delete", @post,data: { toggle: "modal", target: "#delete-post" }, style: "color:black; text-decoration: none;" %>
+            </button>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="delete-post">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">投稿削除</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><iframe class="w-100 v-100" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+        <p><%= "投稿を削除しますか？" %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+        <%= link_to "削除", micropost_path(@post), method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
+
