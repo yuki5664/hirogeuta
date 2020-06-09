@@ -1,0 +1,8 @@
+<div class="col-4 p-1 card">
+  <%= link_to post do %>
+    <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>Artist:  <%= post.artist %></p>
+    <p>Song:  <%= post.song %></p>
+    <p>曲紹介<br><%= truncate(post.content, length: 10) %></p>
+  <% end %>
+</div>

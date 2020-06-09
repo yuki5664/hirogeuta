@@ -1,0 +1,52 @@
+<div class="container mt-3 post">
+  <div class="row">
+      <% @posts.each do |post| %>
+        <div class="card mb-5 col-sm-12 col-md-4 post">
+          <div class="card-header bg-transparent">
+            <%= link_to user_path(post.user) do %>
+              <% if post.user.avatar.attached? %>
+                <%= image_tag post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
+              <% else %>
+                <%= image_tag "no_image", class: "img-thumbnail rounded-circle no_image"%>
+              <% end %>
+              <%= post.user.name %>
+            <% end %>
+          </div>
+          <%= link_to post do %>
+            <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="card-text">
+            <p>Artist:  <%= post.artist %></p>
+          </div>
+          <div class="card-text">
+            <p>Song:  <%= post.song %></p>
+          </div>
+          <div class="card-text">
+            <p>曲紹介<br><%= truncate(post.content, length: 20) %></p>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+  <%= paginate @posts %>
+</div>
+
+<script>
+  $(window).on('scroll', function() {
+      // 画面スクロールの判定用の変数を用意
+      scrollHeight = $(document).height();
+      scrollPosition = $(window).height() + $(window).scrollTop();
+      // 画面のスクロールが下部10%以下になったら
+      if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.1) {
+        // .postに対し、jscrollを発火
+        $('.post').jscroll({
+          // 読込中の表示
+          loadingHtml: '<div class="text-center"><img src="http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif">読み込み中</div>',
+          // 読み込む内容があるリンク
+          nextSelector: 'span.next a',
+          // 読み込む内容がある場所
+          contentSelector: '.post',
+        });
+      }
+  });
+</script>
+

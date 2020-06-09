@@ -7,6 +7,9 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'aws-sdk-s3',              '1.46.0', require: false
 gem 'bcrypt',         '3.1.13'
+gem 'kaminari'
+gem 'ransack'
+
 # Use mysql as the database for Active Record
 
 # Use Puma as the app server
@@ -25,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

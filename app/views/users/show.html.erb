@@ -1,1 +1,49 @@
-<%= @user.name %>, <%= @user.email %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="row pb-5">
+        <div class="col-4 text-center">
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]).processed, class: "img-thumbnail rounded-circle" %>
+          <% else %>
+            <%= image_tag "no_image", class: "img-thumbnail rounded-circle" %>
+          <% end %>
+        </div>
+        <div class="col-8">
+          <h1><%= @user.name %></h1>
+          <% if @user.id == current_user.id %>
+            <p class="btn btn-outline-secondary"><%= link_to t("編集"), edit_user_path(@user) %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="post">
+        <h3>シェアした音楽</h3>
+        <div class="row">
+          <%= render partial: "users/post", collection: @posts %>
+          <%= paginate @posts %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(window).on('scroll', function() {
+      // 画面スクロールの判定用の変数を用意
+      scrollHeight = $(document).height();
+      scrollPosition = $(window).height() + $(window).scrollTop();
+      // 画面のスクロールが下部10%以下になったら
+      if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.1) {
+        // .postに対し、jscrollを発火
+        $('.post').jscroll({
+          // 読込中の表示
+          loadingHtml: '<div class="text-center"><img src="http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif">読み込み中</div>',
+          // 読み込む内容があるリンク
+          nextSelector: 'span.next a',
+          // 読み込む内容がある場所
+          contentSelector: '.post',
+        });
+      }
+  });
+</script>
