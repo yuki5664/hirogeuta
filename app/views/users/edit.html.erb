@@ -31,6 +31,12 @@
         <p class="actions">
           <%= f.submit "変更する", class: "btn btn-block btn-warning" %>
         </p>
+        <p>
+          <%= link_to "アカウントを削除する", user_path(@user), data: { confirm: "アカウントを削除してもよろしいですか?" }, method: :delete, class: "btn btn-block btn-danger" %>
+        </p>
+        <p>
+          <%= link_to "Back", :back, class: "btn btn-block btn-light" %>
+        </p>
       <% end %>
     </div>
   </div>
