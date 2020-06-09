@@ -12,8 +12,11 @@
               <%= post.user.name %>
             <% end %>
           </div>
-          <%= link_to post do %>
             <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="card-text">
+            <%= render 'likes/like', post: post %>
+          </div>
+          <%= link_to post do %>
           <div class="card-text">
             <p>Artist:  <%= post.artist %></p>
           </div>
