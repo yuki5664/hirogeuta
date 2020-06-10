@@ -11,9 +11,10 @@
   </button>
   <%# メニュー %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="nav-item form-inline mb-2 mb-lg-0" action="/" accept-charset="UTF-8" method="get">
-      <input type="text" name="q" id="q" value="" class="form-control" placeholder="検索" >
-    </form>
+    <%= search_form_for @q ,class: "nav-item form-inline mb-2 mb-lg-0" do |f|  %>
+      <%= f.search_field :user_name_or_artist_or_song_or_content, class: "form-control", placeholder: "検索" %>
+    <% end %>
+
     <ul class="nav navbar-nav navbar-right">
       <li class="btn btn-success border-white nav-item"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
       <% if logged_in? %>

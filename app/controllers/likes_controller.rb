@@ -4,13 +4,13 @@ class LikesController < ApplicationController
   def like
     like = current_user.likes.new(micropost_id: @post.id)
     like.save
-    redirect_to root_path
+    redirect_to root_url
   end
 
   def unlike
     like = current_user.likes.find_by(micropost_id: @post.id)
     like.destroy
-    redirect_to root_path
+    redirect_to root_url
   end
 
   private

@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
-
+  before_action :set_search
+  def set_search
+    @q = Micropost.ransack(params[:q])
+    @posts = @q.result.all.page(params[:page]).per(9)
+  end
 
   private
 
