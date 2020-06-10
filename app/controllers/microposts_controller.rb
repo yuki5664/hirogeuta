@@ -2,6 +2,8 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :destroy]
 
   def index
+    @q = Micropost.ransack(params[:q])
+    @posts = @q.result.all.page(params[:page]).per(9)
   end
   
   def new
