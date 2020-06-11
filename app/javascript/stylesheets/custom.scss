@@ -1,3 +1,14 @@
+nav.pagination {
+  display: none;
+}
+
+.no_image {
+  width: 32px;
+}
+
+
+
+
 // customfont
 @font-face {
   font-family: "851MkPOP_002";
@@ -67,3 +78,16 @@ $gray-medium-light: #eaeaea;
   margin-top: 45px;
   @include box_sizing;
 }
+
+// microposts
+.like {
+  color: red;
+  text-decoration: none;
+  display: inline;
+}
+.unlike {
+  color: black;
+  text-decoration: none;
+  display: inline;
+}
+
