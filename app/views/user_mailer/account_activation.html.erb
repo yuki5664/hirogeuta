@@ -1,11 +1,11 @@
 <h1>ヒロゲウタ</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p>こんにちは <%= @user.name %> さん</p>
 
 <p>
-Welcome to the ヒロゲウタ! Click on the link below to activate your account:
+Welcome to the ヒロゲウタ!:下のリンクをクリックしてメール認証を完了させてください
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+<%= link_to "アカウントを有効にする", edit_account_activation_url(@user.activation_token,
                                                     email: @user.email) %>
 
