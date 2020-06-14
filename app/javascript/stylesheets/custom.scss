@@ -9,18 +9,17 @@ nav.pagination {
 
 
 
-// customfont
-@font-face {
-  font-family: "851MkPOP_002";
-  src: asset_url('851MkPOP_002.ttf') format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+// // customfont
+// @font-face {
+//   font-family: "851MkPOP_002";
+//   src: asset_url('851MkPOP_002.ttf') format("truetype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
 
-* {
-  font-family: "851MkPOP_002";
-}
-
+// * {
+//   font-family: "851MkPOP_002";
+// }
 
 
 // header
@@ -31,7 +30,7 @@ nav.pagination {
 
 // background-wrapper
 .background-image {
-  background-image: image-url('music.jpeg');
+  background-image: url('../images/music.jpeg');
   background-size: cover;
   background-position: center; 
   width: 100%;
@@ -85,6 +84,7 @@ $gray-medium-light: #eaeaea;
   text-decoration: none;
   display: inline;
 }
+
 .unlike {
   color: black;
   text-decoration: none;
