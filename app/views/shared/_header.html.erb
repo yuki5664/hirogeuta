@@ -7,7 +7,7 @@
   </div>
   <%# メニュー格納時のボタン %>
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon text-white"></span>
   </button>
   <%# メニュー %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,13 +16,13 @@
     <% end %>
 
     <ul class="nav navbar-nav navbar-right">
-      <li class="btn btn-success border-white"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
+      <li class="btn btn-success border-white  mb-2 mb-md-0"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
       <% if logged_in? %>
       <div class="dropdown show">
         <a href="#" class="dropdown-toggle btn btn-dark border-white ml-3" data-toggle="dropdown">
           アカウント <b class="caret"></b>
         </a>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu w-25 ">
           <li class="dropdown-item"><%= link_to "プロフィール", current_user %></li>
           <li class="dropdown-item"><%= link_to "編集", edit_user_path(current_user) %></li>
           <hr>
@@ -32,7 +32,7 @@
         </div>
       </div>
       <% else %>
-      <li class=" btn btn-dark border-white ml-3"><%= link_to "ログイン", login_path, style: "color:white; text-decoration: none;" %></li>
+      <li class=" btn btn-dark border-white ml-3 mb-2 mb-md-0"><%= link_to "ログイン", login_path, style: "color:white; text-decoration: none;" %></li>
       <% end %>
     </ul>
   </div>
