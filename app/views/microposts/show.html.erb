@@ -3,8 +3,8 @@
     <div class="col-lg-8 mx-auto">
       <div class="card mb-3 mt-3">
         <div class="row no-gutters">
-          <div class="card-header bg-transparent">
-            <%= link_to user_path(@post.user) do %>
+          <div class="card-header bg-transparent user-name">
+            <%= link_to user_path(@post.user), style: "color:black; text-decoration: none;" do %>
               <% if @post.user.avatar.attached? %>
                 <%= image_tag @post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
               <% else %>

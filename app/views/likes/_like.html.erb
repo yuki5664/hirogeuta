@@ -2,11 +2,11 @@
   <% if !logged_in? %>
     <div class="unlike"><i class="far fa-heart"></i></div>
   <% elsif current_user.likes.find_by(micropost_id: post.id) %>
-    <%= link_to unlike_path(post.id), method: :delete, remote: true do %>
+    <%= link_to unlike_path(post.id), style: "text-decoration: none;", method: :delete, remote: true do %>
       <div class="like"><i class="fas fa-heart"></i></div>
     <% end %>
   <% else %>
-    <%= link_to like_path(post.id), method: :post, remote: true do %>
+    <%= link_to like_path(post.id), style: "text-decoration: none;", method: :post, remote: true do %>
       <div class="unlike"><i class="far fa-heart"></i></div>
     <% end %>
   <% end %>

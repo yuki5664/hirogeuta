@@ -1,8 +1,11 @@
 <div class="col-sm-12 col-md-4 p-1 card">
-  <%= link_to post do %>
+  <%= link_to post, style: "color:black; text-decoration: none;" do %>
     <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <p>Artist:  <%= post.artist %></p>
-    <p>Song:  <%= post.song %></p>
-    <p>曲紹介<br><%= truncate(post.content, length: 10) %></p>
+    <p class="m-2" ><%= render 'likes/like', post: post %></p>
+    <div class="posts">
+      <p>Artist:  <%= post.artist %></p>
+      <p>Song:  <%= post.song %></p>
+      <p>曲紹介<br><%= truncate(post.content, length: 10) %></p>
+    </div>
   <% end %>
 </div>

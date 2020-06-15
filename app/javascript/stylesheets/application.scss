@@ -10,21 +10,6 @@ nav.pagination {
 }
 
 
-
-
-// // customfont
-// @font-face {
-//   font-family: "851MkPOP_002";
-//   src: asset_url('851MkPOP_002.ttf') format("truetype");
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
-// * {
-//   font-family: "851MkPOP_002";
-// }
-
-
 // header
 .header-wrapper {
   opacity: 0.9;
@@ -94,5 +79,9 @@ $gray-medium-light: #eaeaea;
   display: inline;
 }
 
+body {
+  .user-name:hover { opacity: 0.5;}
+  .posts:hover { opacity: 0.5;}
+}
 
 

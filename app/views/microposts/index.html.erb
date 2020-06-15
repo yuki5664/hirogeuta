@@ -2,8 +2,8 @@
   <div class="row">
       <% @posts.each do |post| %>
         <div class="card mb-5 col-sm-12 col-md-4 post">
-          <div class="card-header bg-transparent">
-            <%= link_to user_path(post.user) do %>
+          <div class="card-header bg-transparent user-name">
+            <%= link_to user_path(post.user), style: "color:black; text-decoration: none;" do %>
               <% if post.user.avatar.attached? %>
                 <%= image_tag post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
               <% else %>
@@ -16,17 +16,19 @@
           <div class="card-text">
             <%= render 'likes/like', post: post %>
           </div>
-          <%= link_to post do %>
-          <div class="card-text">
-            <p>Artist:  <%= post.artist %></p>
+          <div class="posts">
+            <%= link_to post, style: "color:black; text-decoration: none;" do %>
+            <div class="card-text">
+              <p>Artist:  <%= post.artist %></p>
+            </div> 
+            <div class="card-text">
+              <p>Song:  <%= post.song %></p>
+            </div>
+            <div class="card-text">
+              <p>曲紹介<br><%= truncate(post.content, length: 20) %></p>
+            </div>
+            <% end %>
           </div>
-          <div class="card-text">
-            <p>Song:  <%= post.song %></p>
-          </div>
-          <div class="card-text">
-            <p>曲紹介<br><%= truncate(post.content, length: 20) %></p>
-          </div>
-          <% end %>
         </div>
       <% end %>
   </div>
