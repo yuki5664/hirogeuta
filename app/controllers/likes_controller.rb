@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   def like
     like = current_user.likes.new(micropost_id: @post.id)
     like.save
-       
+      
   end
 
   def unlike
