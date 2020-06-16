@@ -4,7 +4,7 @@ class MicropostTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:michael)
-    @micropost = @user.microposts.build(artist: "ミスチル", song: "名もなき詩", youtube_url: "https://www.youtube.com/watch?v=gj5Nu6feFTQ", content: "すごくいい曲です", user_id: @user.id)
+    @micropost = @user.microposts.build(artist: "ミスチル", song: "名もなき詩", youtube_url: "gj5Nu6feFTQ", content: "すごくいい曲です", user_id: @user.id)
   end
 
   test "should be valid" do
