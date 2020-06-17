@@ -34,16 +34,17 @@
     <div class="row col-md-8 offset-md-2 mt-1">
       <div class="col-md-6">
         <p>(1)youtubeのシェアしたい動画のページへいき<br>共有ボタン→コピーをクリック</p>
-        <%= image_tag 'explanation-2.png', class:"explanation-photo" %>
-        <%= image_tag 'explanation-3.jpeg', class:"explanation-photo"  %>
+        <%= link_to image_tag("explanation-2.png", alt: "Hirogeuta logo",  width: "350px"),root_path %>
+        <%= link_to image_tag("explanation-3.jpeg", alt: "Hirogeuta logo",  width: "350px"),root_path %>
       </div>
       <div class="col-md-6">
         <p>(2)ヒロゲウタのページのシェアするをクリック</p>
-        <%= image_tag 'explanation-1.jpeg', class:"explanation-photo"  %>
+        <%= link_to image_tag("explanation-1.jpeg", alt: "Hirogeuta logo",  width: "350px"),root_path %>
+        
       </div>
       <div class="col-md-6">
         <p>(3)必要項目入力を入力し、シェアするをクリック</p>
-        <%= image_tag 'explanation-4.png', class:"explanation-photo"  %>
+        <%= link_to image_tag("explanation-4.png", alt: "Hirogeuta logo",  width: "350px"),root_path %>
       </div>
     </div>
   </div>
