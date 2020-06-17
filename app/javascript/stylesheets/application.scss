@@ -84,3 +84,49 @@ body {
   .posts:hover { opacity: 0.5;}
 }
 
+// about
+.title-uses {
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px black;
+  border-radius: 3px 0 3px 0;
+}
+
+.title-uses:before, .title-uses:after {
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 2px black;
+  border-radius: 50%;
+}
+
+.title-uses:after {
+  top:-12px;
+  left:-12px;
+}
+.title-uses:before {
+  bottom:-12px;
+  right:-12px;
+}
+
+.title-uses-1 {
+  position: relative;/*相対位置*/
+  padding: 0.5em 0.5em 0.5em 1.5em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  color: black;/*文字色*/
+  border-top: dotted 1px gray;
+  border-bottom: dotted 1px gray;
+  background: #fffff4;
+}
+
+.explanation {
+  position: relative;/*相対位置*/
+  padding: 0.5em 0.5em 0.5em 1.5em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  color: #ff6a6a;/*文字色*/
+  border-top: dotted 1px gray;
+  border-bottom: dotted 1px gray;
+  background: #fffff4;
+}
+

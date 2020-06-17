@@ -41,11 +41,6 @@ class MicropostTest < ActiveSupport::TestCase
     assert_not @micropost.valid?
   end
 
-  test "youtube_url should be at most 50 characters" do
-    @micropost.youtube_url = "a" * 51
-    assert_not @micropost.valid?
-  end
-
   test "content should be at most 50 characters" do
     @micropost.content = "a" * 251
     assert_not @micropost.valid?
