@@ -29,3 +29,11 @@ most_recent:
   content: "Writing a short test"
   created_at: <%= Time.zone.now %>
   user: michael
+
+ants:
+  artist: "ミスチル"
+  song: "名もなき詩"
+  youtube_url: "https://www.youtube.com/watch?v=gj5Nu6feFTQ"
+  content: "Sad cats are sad: https://youtu.be/PKffm2uI4dk"
+  created_at: <%= 3.hours.ago %>
+  user: archer
