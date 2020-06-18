@@ -32,9 +32,9 @@ class MicropostsController < ApplicationController
   end
   
   def destroy
-    @micropost.destroy
+    @post.destroy
     flash[:success] = "削除されました！"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
 
@@ -46,8 +46,8 @@ class MicropostsController < ApplicationController
     end
 
     def correct_user
-      @micropost = current_user.microposts.find_by(id: params[:id])
-      redirect_to root_url if @micropost.nil?
+      @post = current_user.microposts.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
     end
 
 end
