@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_microposts, through: :bookmarks, source: :micropost
   has_many :likes, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email

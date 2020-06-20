@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'sessions/new'
@@ -12,7 +14,11 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :microposts
+  resources :microposts, shallow: true do
+    resource :bookmarks, only: %i[create destroy]
+    get :bookmarks, on: :collection
+  end
+
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'

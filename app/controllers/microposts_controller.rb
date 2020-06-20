@@ -37,6 +37,10 @@ class MicropostsController < ApplicationController
     redirect_to root_url
   end
 
+  def bookmarks
+    @posts = current_user.bookmark_microposts.includes(:user).recent
+  end
+
 
 
   private
