@@ -1,0 +1,6 @@
+<% if !logged_in? %>
+<% elsif !current_user?(post.user) %>
+  <div id="bookmark_btn_<%= post.id %>" class="ml-4 bookmarks">
+    <%= render 'bookmarks/bookmark_area', post: post %>
+  </div>
+<% end %>

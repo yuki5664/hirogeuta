@@ -15,12 +15,7 @@
             <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <div class="card-text row ml-3">
             <%= render 'likes/like', post: post %>
-            <% if !logged_in? %>
-            <% elsif !current_user?(post.user) %>
-              <div class="ml-4 bookmarks">
-                <%= render 'bookmarks/bookmark_area', post: post %>
-              </div>
-            <% end %>
+            <%= render 'microposts/bookmarks', post: post %>
           </div>
           <div class="posts">
             <%= link_to post, style: "color:black; text-decoration: none;" do %>

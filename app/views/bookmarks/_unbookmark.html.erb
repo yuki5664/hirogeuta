@@ -1,1 +1,1 @@
-<%= link_to "お気に入り登録する", micropost_bookmarks_path(post.id), method: :post, id: :"js-bookmark-button-for-board-#{post.id}", style: "color:gray; text-decoration: none;" %>
+<%= link_to "お気に入り登録する", micropost_bookmarks_path(post.id), method: :post, remote: true, id: :"js-bookmark-button-for-post-#{post.id}", style: "color:gray; text-decoration: none;" %>

@@ -16,7 +16,10 @@
           <div class="col-lg-12">
             <iframe class="w-100 vh-100" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <p class="m-2" ><%= render 'likes/like', post: @post %></p>
+          <div class="m-2 row" >
+          <%= render 'likes/like', post: @post %>
+          <%= render 'microposts/bookmarks', post: @post %>
+          </div>
           <hr>
           <div class="col-lg-12">
             <p>Artist</p>
