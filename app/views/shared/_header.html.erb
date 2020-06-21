@@ -10,13 +10,14 @@
   </button>
   <%# メニュー %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <%= search_form_for @q ,class: "nav-item form-inline mb-2 mb-lg-0" do |f|  %>
+    <%= search_form_for @q ,class: "nav-item form-inline mb-2 ml-3 mb-lg-0" do |f|  %>
       <%= f.search_field :artist_or_song_or_content_or_user_name_cont, class: "form-control", placeholder: "検索" %>
     <% end %>
 
     <ul class="nav navbar-nav navbar-right">
-      <li class="btn btn-success border-white  mb-2 mb-md-0"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
+      <li class="btn btn-success border-white  mb-2 ml-3 mb-md-0"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
       <% if logged_in? %>
+      <li class="btn btn-info border-white  mb-2 ml-3 mb-md-0"><%= link_to "お気に入り", micropost_bookmarks_path(current_user) , style: "color:white; text-decoration: none;" %></li>
       <div class="dropdown show">
         <a href="#" class="dropdown-toggle btn btn-dark border-white ml-3" data-toggle="dropdown">
           アカウント <b class="caret"></b>
