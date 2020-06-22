@@ -6,7 +6,7 @@
           <% if @user.avatar.attached? %>
             <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]).processed, class: "img-thumbnail rounded-circle" %>
           <% else %>
-            <%= image_tag "no_image", class: "img-thumbnail rounded-circle" %>
+            <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
           <% end %>
         </div>
         <div class="col-8">

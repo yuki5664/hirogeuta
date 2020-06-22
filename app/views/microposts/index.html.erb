@@ -7,7 +7,7 @@
               <% if post.user.avatar.attached? %>
                 <%= image_tag post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
               <% else %>
-                <%= image_tag "no_image", class: "img-thumbnail rounded-circle no_image"%>
+                <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle no_image"%>
               <% end %>
               <%= post.user.name %>
             <% end %>
