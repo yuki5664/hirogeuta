@@ -1,0 +1,32 @@
+<% @posts.each do |post| %>
+  <div class="card mb-5 col-sm-12 col-md-4">
+    <div class="card-header bg-transparent user-name">
+      <%= link_to user_path(post.user), style: "color:black; text-decoration: none;" do %>
+        <% if post.user.avatar.attached? %>
+          <%= image_tag post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
+        <% else %>
+          <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle no_image"%>
+        <% end %>
+        <%= post.user.name %>
+      <% end %>
+    </div>
+      <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-text row ml-3">
+      <%= render 'likes/like', post: post %>
+      <%= render 'microposts/bookmarks', post: post %>
+    </div>
+    <div class="posts">
+      <%= link_to post, style: "color:black; text-decoration: none;" do %>
+      <div class="card-text">
+        <p>Artist:  <%= post.artist %></p>
+      </div> 
+      <div class="card-text">
+        <p>Song:  <%= post.song %></p>
+      </div>
+      <div class="card-text">
+        <p>曲紹介<br><%= truncate(post.content, length: 20) %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
