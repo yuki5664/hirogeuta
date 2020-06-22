@@ -36,7 +36,7 @@
             </div>
             <% if current_user?(@post.user) %>
             <button type="button" class="btn btn-warning m-2">
-              <%= link_to "delete", @post,data: { toggle: "modal", target: "#delete-post" }, style: "color:black; text-decoration: none;" %>
+              <%= link_to "削除する", @post,data: { toggle: "modal", target: "#delete-post" }, style: "color:black; text-decoration: none;" %>
             </button>
             <% end %>
           </div>

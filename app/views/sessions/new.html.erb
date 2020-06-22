@@ -1,7 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="col-lg-12 mb-3">
+    <div class="col-md-8 mx-auto card bg-light border-danger mt-5">
+      <div class="card-body">
+        <div class="col-lg-12 mb-2">
+          <h1 class="text-center logo">採用担当者様用 専用ログイン</h1>
+          <p class="text-center">下記の「専用ログイン」ボタンを押していただければ,<br>すぐに専用アカウントでログインが可能です。</p>
+        </div>
+        <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, class: 'form-control', value: "saiyou@railstutorial.org" %>
+        </div>     
+        <div class="form-group">
+          <%= f.label :パスワード %>
+          <%= f.password_field :password, class: 'form-control', value: "password" %>       
+        </div>
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me %>
+            <span>次回から入力を省略する</span>
+          <% end %>
+          <p class="text-center">＜採用担当者様 専用アカウンド＞,<br>  
+                                  メールアドレス： saiyou@railstutorial.org <br>
+                                  パスワード： password <br>
+                                  ＊フォームに予め入力済みです</p>
+          <p class="action">
+            <%= f.submit "ログイン", class: "btn btn-block btn-danger" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-6 mx-auto mt-5">
+      <div class="col-lg-12 mt-5 mb-3">
         <h1 class="text-center logo">Log in</h1>
       </div>
       <%= form_with(url: login_path, scope: :session, local: true) do |f| %>

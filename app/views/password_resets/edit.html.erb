@@ -10,13 +10,13 @@
 
       <%= hidden_field_tag :email, @user.email %>
 
-      <%= f.label :password %>
+      <%= f.label :パスワード（6文字以上） %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :パスワード（確認用）, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Update password", class: "btn btn-primary" %>
+      <%= f.submit "パスワードを更新する", class: "btn btn-primary" %>
     <% end %>
     </div>
   </div>
