@@ -9,6 +9,7 @@ gem 'aws-sdk-s3',              '1.46.0', require: false
 gem 'bcrypt',         '3.1.13'
 gem 'kaminari'
 gem 'ransack'
+gem 'rails-i18n'
 
 # Use mysql as the database for Active Record
 
@@ -24,8 +25,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -66,6 +65,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'pg', '~> 0.18'  # バージョンを指定しないとうまく動かない
+  gem 'pg', '~> 0.18'  
   gem 'rails_12factor'
 end

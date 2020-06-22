@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: お名前
+        Email: メールアドレス
+        Password: パスワード
+      micropost:
+        artist: アーティスト名
+        song: 曲名
+        content: 曲の紹介
