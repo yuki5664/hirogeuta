@@ -17,7 +17,7 @@
             <% end %>
           </div>
             <iframe class="w-100 h-100 mt-2" src="https://www.youtube.com/embed/<%= post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <div class="card-text row ml-3">
+          <div class="card-text row mt-1 mb-1 ml-3">
             <%= render 'likes/like', post: post %>
             <%= render 'microposts/bookmarks', post: post %>
           </div>
