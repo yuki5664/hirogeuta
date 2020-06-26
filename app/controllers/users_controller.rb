@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :following, :followers]
   before_action :corrent_user, only: [:edit, :update]
   
   def show
     @user = User.find(params[:id])
     @posts = @user.microposts.page(params[:page]).per(9)
+    @users = User.find(params[:id])
   end
 
   def new
@@ -41,6 +42,20 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:success] = "アカウントが削除されました！"
     redirect_to root_url
+  end
+
+  def following
+    @title = "フォロー中"
+    @user  = User.find(params[:id])
+    @users = @user.following.all
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user  = User.find(params[:id])
+    @users = @user.followers.all
+    render 'show_follow'
   end
 
 
