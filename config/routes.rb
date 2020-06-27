@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
   root 'static_pages#home'
+  get 'comments' => 'static_pages#home'
   get  '/about', to: 'static_pages#about'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     get :bookmarks, on: :collection
   end
   resources :relationships, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
 
 
   post   '/like/:post_id' => 'likes#like',   as: 'like'

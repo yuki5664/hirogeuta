@@ -1,44 +1,66 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-12 mx-auto">
       <div class="card mb-3 mt-3">
         <div class="row no-gutters">
-          <div class="card-header bg-transparent user-name">
-            <%= link_to user_path(@post.user), style: "color:black; text-decoration: none;" do %>
-              <% if @post.user.avatar.attached? %>
-                <%= image_tag @post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
-              <% else %>
-                <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle no_image"%>
+          <div class="col-12">
+            <div class="card-header bg-transparent user-name">
+              <%= link_to user_path(@post.user), style: "color:black; text-decoration: none;" do %>
+                <% if @post.user.avatar.attached? %>
+                  <%= image_tag @post.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
+                <% else %>
+                  <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle no_image"%>
+                <% end %>
+                <%= @post.user.name %>
               <% end %>
-              <%= @post.user.name %>
-            <% end %>
+            </div>
           </div>
-          <div class="col-lg-12">
+          <div class="col-lg-7">
             <iframe class="w-100 vh-100" src="https://www.youtube.com/embed/<%= @post.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <div class="m-2 row" >
-          <%= render 'likes/like', post: @post %>
-          <%= render 'microposts/bookmarks', post: @post %>
-          </div>
-          <hr>
-          <div class="col-lg-12">
-            <p>Artist</p>
-            <div class="card-body border">
-            <%= @post.artist %>
+          <div class="col-lg-5">
+            <div class="m-2 row" >
+            <%= render 'likes/like', post: @post %>
+            <%= render 'microposts/bookmarks', post: @post %>
             </div>
-            <p class="pt-3">曲名</p>
-            <div class="card-body border">
-              <%= @post.song %>
+            <hr>
+            <div class="col-lg-12">
+              <p>Artist :  <%= @post.artist %></p>
+              <hr>
+              <p>曲名  : <%= @post.song %></p>
+              <hr>
+              <p>曲紹介  :  <%= @post.content %></p>
+              <hr>
+              <p class="text-center">コメント一覧</p>
+              <div class="scroll">
+                <% @post.comments.each do |comment| %>
+                  <p>
+                    <% if comment.user.avatar.attached? %>
+                      <%= image_tag comment.user.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
+                    <% else %>
+                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle no_image"%>
+                    <% end %>
+                    <%= comment.user.name %>
+                    <%= truncate(comment.body, length: 30) %>
+                    <% if current_user.id == comment.user.id %>
+                      <%= link_to "削除" , comment_path(comment), method: :delete, data: {confirm: '削除してよろしいですか？'} %>
+                    <% end %>
+                  </p>
+                <% end %>
+              </div>
+
+              <%= form_with model: @comment, url: comments_path, class: "form-group row mx-auto ", local: true do |f| %>
+                <%= f.hidden_field :micropost_id, value: @post.id %>
+                <%= f.text_field :body, class: "col-8 form-control" %>
+                <%= f.submit "コメント", class: "col-4" %>
+              <% end %>
+
+              <% if current_user?(@post.user) %>
+              <button type="button" class="btn btn-warning m-2">
+                <%= link_to "削除する", @post,data: { toggle: "modal", target: "#delete-post" }, style: "color:black; text-decoration: none;" %>
+              </button>
+              <% end %>
             </div>
-            <p class="pt-3">曲紹介</p>
-            <div class="card-body border">
-              <%= @post.content %>
-            </div>
-            <% if current_user?(@post.user) %>
-            <button type="button" class="btn btn-warning m-2">
-              <%= link_to "削除する", @post,data: { toggle: "modal", target: "#delete-post" }, style: "color:black; text-decoration: none;" %>
-            </button>
-            <% end %>
           </div>
         </div>
       </div>
