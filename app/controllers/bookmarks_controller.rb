@@ -11,6 +11,7 @@ class BookmarksController < ApplicationController
   def create
     bookmark = current_user.bookmarks.build(micropost_id: params[:micropost_id])
     bookmark.save!
+    @post.create_notification_bookmark!(current_user)
   end
 
   def destroy

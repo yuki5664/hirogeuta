@@ -17,6 +17,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="btn btn-success border-white  mb-2 ml-3 mb-md-0"><%= link_to "ヒロゲウタについて", about_path , style: "color:white; text-decoration: none;" %></li>
       <% if logged_in? %>
+      <li class="btn btn-secondary border-white  mb-2 ml-3 mb-md-0"><i class="fas fa-bell"></i><%= link_to "通知", notifications_path , style: "color:white; text-decoration: none;" %></li>
       <li class="btn btn-info border-white  mb-2 ml-3 mb-md-0"><%= link_to "お気に入り", micropost_bookmarks_path(current_user) , style: "color:white; text-decoration: none;" %></li>
       <div class="dropdown show">
         <a href="#" class="dropdown-toggle btn btn-dark border-white ml-3" data-toggle="dropdown">

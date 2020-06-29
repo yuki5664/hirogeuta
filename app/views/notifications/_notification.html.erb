@@ -1,0 +1,34 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+  <div class="col-md-6 mx-auto alert alert-info">
+    <div class="form-inline">
+      <span>
+        <%=  link_to user_path(visitor) do %>
+        <% if visitor.avatar.attached? %>
+          <%= image_tag visitor.avatar.variant(resize_to_fill: [32, 32]).processed, class: "img-fluid rounded-circle" %>
+        <% else %>
+          <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle no_image"%>
+        <% end %>
+        <strong><%= visitor.name %></strong>
+        <% end %>
+        <%= "さんが" %>
+        <% case notification.action %>
+          <% when 'follow' then %>
+            <%= "あなたをフォローしました" %>
+          <% when 'like' then %>
+            <%=  link_to 'あなたの投稿', micropost_path(notification.micropost_id), style: "font-weight: bold;"%>
+            <%= "にイイねしました" %>
+          <%  when 'bookmark' then %>
+            <%=  link_to 'あなたの投稿', micropost_path(notification.micropost_id), style: "font-weight: bold;"%>
+            <%= "をお気に入り登録しました" %>
+          <% when 'comment' then %>
+              <%=  link_to "あなたの投稿", micropost_path(notification.micropost_id), style: "font-weight: bold;" %>
+              <%= "にコメントしました" %>
+              <p class="text-muted mb-0"><%= Comment.find_by(id: notification.comment_id)&.body %></p>
+          <% end %>
+          <div class="small text-muted text-ligth">
+            <%=  time_ago_in_words(notification.created_at).upcase %>
+          </div>
+      </span>
+    </div>
+</div>
