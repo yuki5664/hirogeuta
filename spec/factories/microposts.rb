@@ -5,5 +5,9 @@ FactoryBot.define do
     youtube_url {"https://youtu.be/xbhCPt6PZIU"}
     content {"とてもいい曲です！"}
     association :owner
+
+    trait :invalid do
+      artist nil
+    end
   end
 end

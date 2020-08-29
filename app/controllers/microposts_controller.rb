@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :new, :create, :destroy]
   before_action :correct_user, only: :destroy
 
   def index
@@ -18,11 +18,11 @@ class MicropostsController < ApplicationController
 
   def create
     @post = current_user.microposts.build(micropost_params)
-    #追記した部分ここから
+  
     url = params[:micropost][:youtube_url]
     url = url.last(11)
     @post.youtube_url = url
-    #ここまで
+    
 
     if @post.save
       flash[:success] = "投稿されました！"
