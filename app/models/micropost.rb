@@ -10,6 +10,7 @@ class Micropost < ApplicationRecord
   validates :song, presence: true, length: { maximum: 50 }
   validates :youtube_url, presence: true
   validates :content, presence: true, length: { maximum: 250 }
+  belongs_to :owner, class_name: 'User', foreign_key: :user_id
 
   # boardのお気に入り判定 → vies側で呼び出し
   def bookmark_by?(user)

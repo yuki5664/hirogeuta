@@ -38,6 +38,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'mysql2', '>= 0.4.4'
+  gem 'rspec-rails', '4.0.0.beta3'
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
@@ -47,11 +49,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 end
 
 
 group :test do
-  gem 'capybara',                 '3.28.0'
   gem 'selenium-webdriver',       '3.142.4'
   gem 'webdrivers',               '4.1.2'
   gem 'rails-controller-testing', '1.0.4'
@@ -59,6 +61,7 @@ group :test do
   gem 'minitest-reporters',       '1.3.8'
   gem 'guard',                    '2.16.2'
   gem 'guard-minitest',           '2.4.6'
+  gem 'capybara', '~> 2.15.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -67,4 +70,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'pg', '~> 0.18'  
   gem 'rails_12factor'
+  gem 'unicorn'
 end
